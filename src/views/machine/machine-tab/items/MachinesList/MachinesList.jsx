@@ -325,7 +325,7 @@ const MachinesList = () => {
 
     const columns = [
         {
-            id: 'machineName',
+            id: 'name',
             numeric: false,
             disablePadding: false,
             label: 'Machine Name',
