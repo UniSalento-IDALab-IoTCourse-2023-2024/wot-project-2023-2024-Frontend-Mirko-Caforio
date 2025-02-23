@@ -9,6 +9,14 @@ import {
     apiMachineWorkMachinePut
 } from "../../apiGateway-js-sdk/apiClient";
 
+const convertToCamelCase = (str) => {
+    return str
+        .toLowerCase()
+        .split(' ')
+        .map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+};
+
 export const getAllMachines = () => {
     const params = AuthHeader();
     const body = {};
@@ -63,10 +71,10 @@ export const insertMachine = (data) => {
         brandName: data.brandName,
         description: data.description,
         manufacturerName: data.manufacturerName,
-        manufacturingMachineType: data.manufacturingMachineType,
+        manufacturingMachineType: convertToCamelCase(data.manufacturingMachineType),
         name: data.name,
         processDescription: data.processDescription,
-        standardOperations: data.standardOperations,
+        standardOperations: data.standardOperations.split(',').map(item => item.trim()),
         type: "ManufacturingMachineModel",
         version: data.version,
         status: "INACTIVE",
@@ -96,10 +104,10 @@ export const updateMachine = (data) => {
         brandName: data.brandName,
         description: data.description,
         manufacturerName: data.manufacturerName,
-        manufacturingMachineType: data.manufacturingMachineType,
+        manufacturingMachineType: convertToCamelCase(data.manufacturingMachineType),
         name: data.name,
         processDescription: data.processDescription,
-        standardOperations: data.standardOperations,
+        standardOperations: data.standardOperations.split(',').map(item => item.trim()),
         type: "ManufacturingMachineModel",
         version: data.version,
         status: data.status,

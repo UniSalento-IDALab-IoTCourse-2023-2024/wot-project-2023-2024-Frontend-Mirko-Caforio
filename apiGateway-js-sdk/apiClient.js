@@ -539,7 +539,7 @@ export const apiNotificationFindPopupNotificationsGet = async (params, body, add
         verb: 'get'.toUpperCase(),
         path: apiNotificationClient.getUri() + uritemplate('/api/notification/popup/find').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
         headers: apiGateway.core.utils.parseParametersToObject(params, ['Authorization',]),
-        queryParams: apiGateway.core.utils.parseParametersToObject(params, ['email', 'subject', 'from', 'to', 'read']),
+        queryParams: apiGateway.core.utils.parseParametersToObject(params, ['email']),
         body: body
     }
 

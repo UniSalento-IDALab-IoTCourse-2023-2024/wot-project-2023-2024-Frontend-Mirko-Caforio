@@ -22,6 +22,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import {format} from 'date-fns';
 import {readPopupNotification} from "../../../../actions/notification";
 import {useDispatch} from "react-redux";
+import {Warning} from "@mui/icons-material";
 
 const ListItemWrapper = ({children}) => {
     return (
@@ -109,19 +110,32 @@ const NotificationList = ({notificationList, limit, dialogSize}) => {
                     <CheckCircleOutlineIcon stroke={1.5} size="1.3rem"/>
                 </Avatar>
             );
-        case 'INFO':
-            return (
-                <Avatar
-                    sx={{
-                        color: theme.palette.primary.dark,
-                        backgroundColor: theme.palette.primary.light,
-                        border: 'none',
-                        borderColor: theme.palette.primary.main
-                    }}
-                >
-                    <InfoIcon stroke={1.5} size="1.3rem"/>
-                </Avatar>
-            );
+            case 'INFO':
+                return (
+                    <Avatar
+                        sx={{
+                            color: theme.palette.primary.dark,
+                            backgroundColor: theme.palette.primary.light,
+                            border: 'none',
+                            borderColor: theme.palette.primary.main
+                        }}
+                    >
+                        <InfoIcon stroke={1.5} size="1.3rem"/>
+                    </Avatar>
+                );
+                case "WARNING":
+                    return (
+                        <Avatar
+                            sx={{
+                                color: theme.palette.warning.dark,
+                                backgroundColor: theme.palette.warning.light,
+                                border: 'none',
+                                borderColor: theme.palette.warning.main
+                            }}
+                        >
+                            <Warning stroke={1.5} size="1.3rem"/>
+                        </Avatar>
+                    );
         }
     }
 

@@ -57,7 +57,7 @@ export const UpdateMachineDialog = ({openState, handleClose, element}) => {
         manufacturingMachineType: manufacturingMachineTypes.find(type => type.manufacturingMachineType.toLowerCase() === element.manufacturingMachineType).manufacturingMachineType,
         name: element.name,
         processDescription: element.processDescription,
-        standardOperations: element.standardOperations,
+        standardOperations: element.standardOperations.join(', '),
         type: 'ManufacturingMachineModel',
         version: element.version,
     };
